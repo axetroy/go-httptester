@@ -3,7 +3,6 @@ package httptester_test
 import (
 	"encoding/json"
 	"github.com/axetroy/go-httptester"
-	"github.com/stretchr/testify/assert"
 	"net/http"
 	"testing"
 )
@@ -61,8 +60,6 @@ func TestNew(t *testing.T) {
 
 		r := httptester.New(h, t)
 
-		assert.Equal(t, nil, nil)
-
 		r.Get("/hello_world", nil, nil).
 			StatusCode(http.StatusBadRequest).
 			Body([]byte("Hello world")).
@@ -76,8 +73,6 @@ func TestNewJSON(t *testing.T) {
 		h := &serverJSON{}
 
 		r := httptester.New(h, t)
-
-		assert.Equal(t, nil, nil)
 
 		r.Get("/json", nil, nil).
 			StatusCode(http.StatusBadRequest).
@@ -98,8 +93,6 @@ func TestNewMultipleHeader(t *testing.T) {
 		h := &serverMultipleHeader{}
 
 		r := httptester.New(h, t)
-
-		assert.Equal(t, nil, nil)
 
 		r.Get("/header", nil, nil).
 			StatusCode(http.StatusBadRequest).
